@@ -1,0 +1,20 @@
+{
+    "name": "Bill",
+    "profession": "Software Engineer",
+    "age": 26,
+    "residence": "South Korea",
+    "address": "Gwangju",
+    "labguages": ["Uzbek", "English", "Korean", "Russian"],
+    "skills": ["HTML", "CSS", "JS", "NodeJS", "Python"],
+    "extra_skills": ["Bootstrap, Materialize", "Styling, Sass", "Django, Flask", "GIT Knowledge"],
+    "work_place": "IT Company",
+    "service_desc": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat.",
+    "about_me": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoq",
+    "city": "Denau",
+    "title": ["Flower", "Seedlings", "Gardner", "Old", "New"],
+    "flower_desc": ["What is a Flower?", "What is a Seedling?", "Who is Gardner?"],
+    "flower_name": ["Tulip", "Daffodil", "Poppy", "Sunflower", "Bluebell", "Rose", "Snowdrop", "Cherry", "blossom"],
+    "flower_price": ["15$", "25$", "12$", "20$", "35$", "30$", "22$", "19$", "9$"],
+    "famous_words":["It's fine to celebrate success, but it is more important to heed the lessons of failure"],
+    "famous_name": ["Bill Gates"]
+}
