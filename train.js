@@ -1,3 +1,216 @@
+console.log("Jack Ma Maslahatlari");
+const list = [
+    "Yahshi talaba boling", // 0-20
+    "Togri boshliq tanlang va koproq hato qiling", // 20-30
+    "Ozingizni ishlaringizni boshlang", // 30-40
+    "Siz kuchliy bolgan narsalarni qiling", // 40-50
+    "Yoshlarga investitsiya qiling", // 50-60
+    "Dam olish vaqti keldi, foydasi yoq endi", // 60
+];
+
+
+
+// "CallBack Function"
+function maslahatBering(a, callback) {   
+   if(typeof a !=='number') callback("instert a number","null") // "error or null","data(if no data NULL"
+   else if (a <= 20) callback(null, list[0]);
+   else if (a > 20 && a <= 30) callback(null, list[1]);
+   else if (a > 30 && a <= 40) callback(null, list[2]);
+   else if (a > 40 && a <= 50) callback(null, list[3]);
+   else if (a > 50 && a <= 60) callback(null, list[4]);
+   else {
+    setInterval(function() {
+        callback(null,list[5]);     // function
+    }, 2000);                       // 2ta "PARAMETR" oladi function bilan time
+                                    //   callback(null,list[5]);
+   }     
+}
+
+// // "CALLBACK FUNCTION"
+
+console.log("Passed here 0");
+maslahatBering(70, (err, data) => {            // "Parametr sifatida funtion ishga tushadi"  ===  Maslahat bering da (25) son orniga stringda "Salom dep yozsa bizga NULL" beradi
+      if(err) console.log('ERROR:', err);      // Agar hatolik bolsa korsatadi
+            else {
+      console.log('JAVOB:', data);
+    }
+});
+console.log("Passed here 1");
+
+
+
+
+
+
+
+
+
+
+
+
+
+// CallBack functionni Asynchronus Functionga ozgartiramiz
+
+
+// console.log("Jack Ma Maslahatlari");
+// const list = [
+//     "Yahshi talaba boling", // 0-20
+//     "Togri boshliq tanlang va koproq hato qiling", // 20-30
+//     "Ozingizni ishlaringizni boshlang", // 30-40
+//     "Siz kuchliy bolgan narsalarni qiling", // 40-50
+//     "Yoshlarga investitsiya qiling", // 50-60
+//     "Dam olish vaqti keldi, foydasi yoq endi", // 60
+// ];
+
+// asynchroneus qilip Functiondi define qilamiz
+// ""asynchroneus function""
+// async function maslahatBering(a, callback) {   
+//    if(typeof a !=='number') throw new Error ("instert a number") 
+//    else if (a <= 20) return list [0]; // javob kelayotkanda faqat javobni return qilamiz
+//    else if (a > 20 && a <= 30) return list [1];
+//    else if (a > 30 && a <= 40) return list [2];
+//    else if (a > 40 && a <= 50) return list [3];
+//    else if (a > 50 && a <= 60) return list [4];                                          // Asynchronus function ichida SetTime out yokiy SetInterval core module functionlar ishlamaydi
+//    else {
+//           return new Promise((resolve, reject) => {
+//             setInterval(() => {
+//                 resolve(list[5]);
+//             }, 2000);
+//           });
+//     // setTimeout(function(){
+//     //     return list [0];
+//     //  }, 5000);    
+//    }     
+// }
+
+// async function run() {
+//     let javob = await maslahatBering(65);    
+//     console.log(javob);
+// };
+// run();
+
+
+
+
+
+
+
+
+
+
+
+
+// CALL QISMI  via than & catch
+
+// THEN = data
+// CATCH = bu yerda ERROR catch qiladi
+
+
+// THEN & CATCH
+// console.log("passed here 0");
+
+// console.log("Passed here 0");
+// maslahatBering(25).then(data => {                    // DATA ga tepadagi "A" ning qiymatini berayapmiz. Hatolik yoq bolsa datani qabul qilamiz. Hatolik bolsa ishlamaydi 
+//     console.log("Javob:", data);                     // Data da HATOLIK bolsa bu yerda CATCH ishlaydi ERROR chiqaradi
+
+// }).catch(err => {                  
+//     console.log("Javob:", err);
+// });
+
+// console.log("passed here 1");
+
+
+
+// Asunchronus Functionlar Synchronus Functionlar toliq ishka tuship bolgach. Asynchronus function natijalari bilan NODE.JS ishlay boshledi
+
+
+// "Call via ASYNCHRONUS & AWAIT"
+// async function run() {
+//     let javob = await maslahatBering(20);    // Asynchronus function da AWAIT qismida toliq javob olmaguncha keyingi qismlar amalga oshmaydi (JAVOB = variable)
+//     console.log(javob);
+//     javob = await maslahatBering(31);
+//     console.log(javob);
+//     javob = await maslahatBering(41);
+//     console.log(javob);  
+//     javob = await maslahatBering(51);
+//     console.log(javob);
+//     javob = await maslahatBering(61);
+//     console.log(javob);                           // Bittasidan javob kelmasdan ikkinchisi boshlamaydi faqatgina ketma ketlik bilan ishlaydi
+// };
+// run();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ======================================================================================================================================================================
+
+
+
+// C - TASK "NodeJS event loop va Callback functionlarni o'rganamiz"
+
+// Synchroneus Functions ( Immedetely ishka tushadi)
+
+// console.log("Jack Ma Maslahatlari");
+// const list = [
+//     "Yahshi talaba boling", // 0-20
+//     "Togri boshliq tanlang va koproq hato qiling", // 20-30
+//     "Ozingizga ishlaringizni boshlang", // 30-40
+//     "Siz kuchliy bolgan narsalarni qiling", // 40-50
+//     "Yoshlarga investitsiya qiling", // 50-60
+//     "Dam olish vaqti keldi, foydasi yoq endi", // 60
+// ];
+
+// function maslahatBering(a, callback) {   
+//    if(typeof a !=='number') callback("instert a number","null") // "error or null","data(if no data NULL"
+//    else if (a <= 20) callback(null, list[0]);
+//    else if (a > 20 && a <= 30) callback(null, list[1]);
+//    else if (a > 30 && a <= 40) callback(null, list[2]);
+//    else if (a > 40 && a <= 50) callback(null, list[3]);
+//    else if (a > 50 && a <= 60) callback(null, list[4]);
+//    else {
+//     setTimeout(function(){
+//         callback(null,list[5]);   // function
+//     }, 5000);    // 2ta "PARAMETR" oladi function bilan time
+//         //   callback(null,list[5]);
+//    }     
+// }
+
+// // "CALLBACK FUNCTION"
+
+// console.log("Passed here 0");
+// maslahatBering(65, (err, data) => {            // "Parametr sifatida funtion ishga tushadi"  ===  Maslahat bering da (25) son orniga stringda "Salom dep yozsa bizga NULL" beradi
+//       if(err) console.log('ERROR:', err);      // Agar hatolik bolsa korsat
+//       console.log('JAVOB:', data)
+// });
+// console.log("Passed here 1");
+
+
+
+// ======================================================================================================================================================================
+
+
+
+
+
 // B-TASK "EJS FRAMEWORK"
 
 // <!DOCTYPE html>
@@ -58,6 +271,7 @@
 
 
 
+// ======================================================================================================================================================================
 
 
 

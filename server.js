@@ -200,7 +200,7 @@ app.get("/", function (req, res) {  //(request & response)  (BULAR IKTA OBJECTLA
     res.render("harid");   // RENDER = REQUESTGA RESPONSE QILISH UCHUN YARATILADI
 });
 
-const server = http.createServer(app);
+const server = http.createServer(app);  // HAMMA qilayotkan request (APP) ichiga keladi chunkiy node.js hammanikini qabul qiladi bittada (Train.js)dan ham kelayapti
 let PORT = 3000;
 server.listen(PORT , function() {
     console.log(`The server is running successefully on PORT: ${PORT}`);
