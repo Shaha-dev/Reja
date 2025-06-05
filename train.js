@@ -1,3 +1,7 @@
+// ===========================================================================================
+
+// TASK D
+
 console.log("Jack Ma Maslahatlari");
 const list = [
     "Yahshi talaba boling", // 0-20
