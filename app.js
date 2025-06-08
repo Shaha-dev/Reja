@@ -189,16 +189,37 @@ app.set("view engine", "ejs");
 // 4 ROUTING CODLAR   (Qachonki browserdan request kelsa keyin oqiydi)
 
 app.post("/create-item", (req, res) => {
-    // TODO: code with db here
+    console.log("user entered /created-item");
+    // console.log(req.body);
+    const new_reja = req.body.reja;                 // res.end("success");
+    db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
+        if(err) {
+            console.log(err);
+            res.end("something went wrong");
+        }else {
+            res.end("seccessfully added");
+        }
+    });         // TODO: code with db here
 });
 
 app.get('/mit',(req, res) => {
     res.render("mit", {user: user});
 });
 
-// const http = require('http');        // (************)  shuni qoymasam bolmadi
-app.get("/", function (req, res) {  //(request & response)  (BULAR IKTA OBJECTLAR)
-    res.render("reja");   // RENDER = REQUESTGA RESPONSE QILISH UCHUN YARATILADI
+// const http = require('http');                            // (************)  shuni qoymasam bolmadi
+app.get("/", function (req, res) {                          //(request & response)  (BULAR IKTA OBJECTLAR)
+    console.log("user entered /");        
+  db.collection("plans")
+  .find()
+  .toArray((err, data) => {
+    if(err) {
+        console.log(err);
+        res.end("something went wrong");
+    } else {
+        // console.log(data);
+         res.render("reja", { items: data });              // RENDER = REQUESTGA RESPONSE QILISH UCHUN YARATILADI
+    }
+  });       
 });
 
 module.exports = app;
