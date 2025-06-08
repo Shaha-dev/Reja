@@ -1,17 +1,37 @@
+// console.log("===== EXECUTE =====");
+
+// // DEFINE
+// function subtract(a, b, callback) {
+//   if (b === 0) {
+//     callback("Manga 19 chiqarip ber", null);
+//   } else {
+//     callback(null, a % b);
+//   }
+// }
+
+// // CALL
+// subtract(39, 20, (err, data) => {
+//   if (err) console.log("Error:", err);
+//   else {
+//     console.log("data:", data);
+//   }
+// });
+
+
 // TASK A "Home work"
 
-function countLetter(letter, word) {
-    let count = 0;
-    for (let i = 0; i < word.length; i++) {
-        if (word[i] === letter) {
-            count++;
-        }
-    }
-    return count;
-}
+// function countLetter(letter, word) {
+//     let count = 0;
+//     for (let i = 0; i < word.length; i++) {
+//         if (word[i] === letter) {
+//             count++;
+//         }
+//     }
+//     return count;
+// }
 
-// Call
-console.log(countLetter("e", "engineer")); // Result: 3
+// // Call
+// console.log(countLetter("e", "engineer")); // Result: 3
 
 
 
@@ -85,9 +105,10 @@ console.log(countLetter("e", "engineer")); // Result: 3
 
 // asynchroneus qilip Functiondi define qilamiz
 // ""asynchroneus function""
-// async function maslahatBering(a, callback) {   
+
+//  async function maslahatBering(a, callback) {   
 //    if(typeof a !=='number') throw new Error ("instert a number") 
-//    else if (a <= 20) return list [0]; // javob kelayotkanda faqat javobni return qilamiz
+//    else if (a <= 20) return list [0];                                                    // javob kelayotkanda faqat javobni return qilamiz
 //    else if (a > 20 && a <= 30) return list [1];
 //    else if (a > 30 && a <= 40) return list [2];
 //    else if (a > 40 && a <= 50) return list [3];
@@ -95,15 +116,16 @@ console.log(countLetter("e", "engineer")); // Result: 3
 //    else {
 //           return new Promise((resolve, reject) => {
 //             setInterval(() => {
-//                 resolve(list[5]);
+//                 resolve(list[4]);
 //             }, 2000);
 //           });
-//     // setTimeout(function(){
+//     // setTimeout(function() {
 //     //     return list [0];
 //     //  }, 5000);    
 //    }     
 // }
 
+// // CALLBACK
 // async function run() {
 //     let javob = await maslahatBering(65);    
 //     console.log(javob);
@@ -121,7 +143,7 @@ console.log(countLetter("e", "engineer")); // Result: 3
 
 
 
-// CALL QISMI  via than & catch
+// CALL QISMI  via "than & catch"
 
 // THEN = data
 // CATCH = bu yerda ERROR catch qiladi
