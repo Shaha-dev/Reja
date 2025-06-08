@@ -197,13 +197,13 @@ app.get('/mit',(req, res) => {
 
 // const http = require('http');        // (************)  shuni qoymasam bolmadi
 app.get("/", function (req, res) {  //(request & response)  (BULAR IKTA OBJECTLAR)
-    res.render("harid");   // RENDER = REQUESTGA RESPONSE QILISH UCHUN YARATILADI
+    res.render("reja");   // RENDER = REQUESTGA RESPONSE QILISH UCHUN YARATILADI
 });
 
 const server = http.createServer(app);  // HAMMA qilayotkan request (APP) ichiga keladi chunkiy node.js hammanikini qabul qiladi bittada (Train.js)dan ham kelayapti
 let PORT = 3000;
 server.listen(PORT , function() {
-    console.log(`The server is running successefully on PORT: ${PORT}`);
+    console.log(`The server is running successefully on PORT: ${PORT}, http://localhost:${PORT}`);
 });
 
 
