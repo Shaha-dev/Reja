@@ -188,17 +188,22 @@ app.set("view engine", "ejs");
 
 // 4 ROUTING CODLAR   (Qachonki browserdan request kelsa keyin oqiydi)
 
-app.post("/create-item", (req, res) => {
+
+// Traditional form post
+app.post("/create-item", (req, res) => {              
     console.log("user entered /created-item");
     // console.log(req.body);
     const new_reja = req.body.reja;                 // res.end("success");
     db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
-        if(err) {
-            console.log(err);
-            res.end("something went wrong");
-        }else {
-            res.end("seccessfully added");
-        }
+        console.log(data.ops);
+        res.json(data.ops[0]);
+
+        // if(err) {
+        //     console.log(err);
+        //     res.end("something went wrong");
+        // }else {
+        //     res.end("seccessfully added");
+        // }
     });         // TODO: code with db here
 });
 
