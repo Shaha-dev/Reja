@@ -1,20 +1,54 @@
+// C-TASK
+
+function checkContent(a, b) {
+  if (a.length !== b.length) return false;
+
+  const countChars = str => {
+    const count = {};
+    for (let char of str) {
+      count[char] = (count[char] || 0) + 1;
+    }
+    return count;
+  };
+
+  const count1 = countChars(a);
+  const count2 = countChars(b);
+
+  for (let key in count1) {
+    if (count1[key] !== count2[key]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+console.log(checkContent("mitgroup", "gmtiprou")); 
+
+
+
+
+
+
+
+
+
 // B -TASK: HOMEWORK (E)
 
 // Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
 // MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
 
-function countNumbers(str) {
-  let count = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] >= '0' && str[i] <= '9') {
-      count++;
-    }
-  }
-  return count;
-}
+// function countNumbers(str) {
+//   let count = 0;
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] >= '0' && str[i] <= '9') {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
 
-// Misol:
-console.log(countNumbers("ad2a54y79wet0sfgb9")); // 7 ta Raqam bor stringimiz ichida
+// // Misol:
+// console.log(countNumbers("ad2a54y79wet0sfgb9")); // 7 ta Raqam bor stringimiz ichida
 
 
 

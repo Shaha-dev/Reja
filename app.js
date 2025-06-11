@@ -173,6 +173,7 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
 
 // MongoDB Call
 const db = require("./server").db();
+const mongodb = require("mongodb");  // ID ni mongodb orqaliy olish
 
 // 1 EXPRESS SETTINGS
 app.use(express.static("public"));    // PUBLIC FOLDER = Tashqi olamga ochiqlash ichiga CSS HTML kirip ketadi       (OBJECT, MIDDLEWARE) PUBLIC FOLDER OCHIP BERADI
@@ -209,6 +210,18 @@ app.post("/create-item", (req, res) => {
 
 app.get('/mit',(req, res) => {
     res.render("mit", {user: user});
+});
+
+app.post("/delete-item", (req, res) => {
+    const id = req.body.id;                     // STRING dan ibirat ID
+    db.collection("plans").deleteOne(           // ID ni mongodb orqaliy olish
+        { _id: new mongodb.ObjectId(id) }, 
+    function(err, data) {
+        res.json({ state: "success"});
+    }
+);    
+    // console.log(id);   REJA ni ID sini korsatip beradi
+    // res.end("Done");
 });
 
 // const http = require('http');                            // (************)  shuni qoymasam bolmadi

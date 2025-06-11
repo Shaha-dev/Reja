@@ -36,3 +36,29 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
         console.log("Iltimos qaytatdan harakat qiling!");
     });
 }); 
+
+document.addEventListener("click", function(e) {
+  // "DELETE operation"
+  console.log(e.target);
+  if (e.target.classList.contains("delete-me")) {
+    if(confirm("Anniq ochirmoqchimisiz?")) {
+      
+      // alert("Yes deb javob berildi");
+    // } else {
+    //   alert("No deb javob berildi");                         "Promise" mi THEN va CATCH degan METHOD lari bor
+    
+    axios.post("/delete-item", {id:e.target.getAttribute("data-id")})
+    .then((response) => {
+      console.log(response.data);
+      e.target.parentElement.parentElement.remove();
+    })
+    .catch((err) => {
+      console.log("Iltimos qaytatdan harakat qiling!");
+    });
+    }
+  }
+  // "EDIT operation"
+  if (e.target.classList.contains("edit-me")) {
+    alert("siz edit tugmasini bosdingiz");
+  }
+});
