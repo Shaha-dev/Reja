@@ -59,6 +59,32 @@ document.addEventListener("click", function(e) {
   }
   // "EDIT operation"
   if (e.target.classList.contains("edit-me")) {
-    alert("siz edit tugmasini bosdingiz");
+    // alert("siz edit tugmasini bosdingiz");
+    
+    let userInput = prompt("Ozgartirish kiriting", 
+      e.target.parentElement.parentElement.querySelector(".item-text").innerHTML);
+    if(userInput) {
+      // console.log(userInput);
+    axios.post("/edit-item", {
+        id:e.target.getAttribute("data-id"),
+        new_input: userInput,
+      }).then(response => {
+         console.log(response.data);
+         e.target.parentElement.parentElement.querySelector(
+          ".item-text"
+         ).innerHTML = userInput;
+      }).catch(err => {
+         console.log("Please try again");
+      })
+    }
   }
+});
+
+
+// "DELETE-ALL" operation
+document.getElementById("clean-all").addEventListener("click", function () {
+  axios.post("/delete-all", { delete_all: true }).then((response) => {
+    alert(response.data.state);
+    document.location.reload;
+  });
 });
