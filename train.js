@@ -1,28 +1,82 @@
+// D - Task
+
+class Shop {
+    constructor(non, lagmon, cola) {
+        this.products = {
+            non: non,
+            lagmon: lagmon,
+            cola: cola
+        };
+    }
+
+    _getTime() {
+        const date = new Date();
+        const hours = String(date.getHours()).padStart(2, '0'); 
+        const minutes = String(date.getMinutes()).padStart(2, '0'); 
+        return `${hours}:${minutes}`;  // ✅ TO‘G‘RILANGAN QATOR
+    }
+
+    sotish(mahsulot, miqdor) {
+        if (!(mahsulot in this.products)) {
+            console.log(`Mahsulot ${mahsulot} do'konimizda yo'q!`);
+            return;
+        }
+        if (this.products[mahsulot] >= miqdor) {
+            this.products[mahsulot] -= miqdor;
+            console.log(`Hozir ${this._getTime()}da ${miqdor}ta ${mahsulot} sotildi!`);
+        } else {
+            console.log(`Hozir ${this._getTime()}da ${mahsulot}dan yetarli miqdorda mavjud emas!`);
+        }
+    }
+
+    qoldiq() {
+        console.log(`Hozir ${this._getTime()}da ${this.products.non}ta non, ${this.products.lagmon}ta lagmon va ${this.products.cola}ta cola mavjud!`);
+    }
+
+    qabul(mahsulot, miqdor) {
+        if (!(mahsulot in this.products)) {
+            console.log(`Mahsulot ${mahsulot} do'konimizda yo'q!`);
+            return;
+        }
+        this.products[mahsulot] += miqdor;
+        console.log(`Hozir ${this._getTime()}da ${miqdor}ta ${mahsulot} qabul qilindi!`);
+    }
+}
+const shop = new Shop(4, 5, 2);
+shop.qoldiq(); 
+shop.sotish('non', 3);  
+shop.qabul('cola', 4); 
+shop.qoldiq();
+
+
+
+
+
 // C-TASK
 
-function checkContent(a, b) {
-  if (a.length !== b.length) return false;
+// function checkContent(a, b) {
+//   if (a.length !== b.length) return false;
 
-  const countChars = str => {
-    const count = {};
-    for (let char of str) {
-      count[char] = (count[char] || 0) + 1;
-    }
-    return count;
-  };
+//   const countChars = str => {
+//     const count = {};
+//     for (let char of str) {
+//       count[char] = (count[char] || 0) + 1;
+//     }
+//     return count;
+//   };
 
-  const count1 = countChars(a);
-  const count2 = countChars(b);
+//   const count1 = countChars(a);
+//   const count2 = countChars(b);
 
-  for (let key in count1) {
-    if (count1[key] !== count2[key]) {
-      return false;
-    }
-  }
+//   for (let key in count1) {
+//     if (count1[key] !== count2[key]) {
+//       return false;
+//     }
+//   }
 
-  return true;
-}
-console.log(checkContent("mitgroup", "gmtiprou")); 
+//   return true;
+// }
+// console.log(checkContent("mitgroup", "gmtiprou")); 
 
 
 
