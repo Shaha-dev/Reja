@@ -15,7 +15,7 @@ mongodb.connect(connectionString, {
         module.exports = client;
         const app = require("./app");
         const server = http.createServer(app);  // HAMMA qilayotkan request (APP) ichiga keladi chunkiy node.js hammanikini qabul qiladi bittada (Train.js)dan ham kelayapti
-let PORT = 3000;
+let PORT = 4004;
 server.listen(PORT , function() {
     console.log(
         `The server is running successefully on PORT: ${PORT}, http://localhost:${PORT}`
