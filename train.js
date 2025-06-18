@@ -1,9 +1,29 @@
+// F - TASK
+
+function findDoublers(str) {
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length; j++) {
+      if (str[i] === str[j]) {
+        return true; // bir xil harf topildi (hello)
+      }
+    }
+  }
+  return false; // hamma harflar har xil (world)
+}
+
+console.log(findDoublers("hello")); // true (chunki 'l' ikki marta)
+console.log(findDoublers("world")); // false
+
+
+
+
+
 // E -Task (getReverse)
 
-function getReverse(str) {
-    return str.split('').reverse().join('');
-}
-console.log(getReverse("hello"));
+// function getReverse(str) {
+//     return str.split('').reverse().join('');
+// }
+// console.log(getReverse("hello"));
 
 
 
